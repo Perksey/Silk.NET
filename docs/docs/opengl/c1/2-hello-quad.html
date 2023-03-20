@@ -1,0 +1,604 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+      <title>
+        1.2 - Hello Quad - Silk.NET
+      </title>
+      <meta property="og:title" content="1.2 - Hello Quad" />
+      <meta property="og:site_name" content="Silk.NET - High-Speed &amp; Advanced .NET Graphics &amp; Compute" />
+
+          <meta name="description" content="Your one-stop-shop for high performance .NET graphics &amp; compute. A .NET Foundation project." />
+
+      <meta property="og:type" content="website" />
+
+      <meta name="og:image" content="https://dotnet.github.io/Silk.NET/" />
+      <meta name="og:image:alt" content="Blog Preview Image" />
+      <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="../../../theme/nucleo.css" rel="stylesheet" />
+  <link href="../../../theme/fontawesome.css" rel="stylesheet" />
+  <link href="../../../theme/argon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css">
+  <link rel="stylesheet" href="../../../theme/silk.css" />
+</head>
+
+<body class="silk-dark">
+  
+  <header class="header-global">
+        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-horizontal navbar-dark navbar-silk-fixed">
+        
+
+<div class="container-fluid">
+      <a class="navbar-brand silk-dark-only" href="../../..">
+        <img src="../../../images/wordmarkw.svg">
+      </a>
+      <a class="navbar-brand silk-light-only" href="../../..">
+        <img src="../../../images/wordmark.svg">
+      </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbar_global">
+    <div class="navbar-collapse-header">
+      <div class="row">
+        <div class="col-6 collapse-brand">
+              <a href="../../..">
+                <img src="../../../images/wordmark.svg">
+              </a>
+        </div>
+        <div class="col-6 collapse-close">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+              <li class="nav-item dropdown">
+                <a href="../.." class="nav-link" data-toggle="dropdown" href="#" role="button">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Documentation</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-xl">
+                  <div class="dropdown-menu-inner">
+                            <a href=".." class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                                <i class="ni ni-spaceship"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-primary mb-md-1">Getting Started with Silk.NET &amp; OpenGL</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Learn how to use Silk.NET for making basic cross-platform games and applications powered by OpenGL.</p>
+                              </div>
+                            </a>
+                            <a href="../../hlu" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                                <i class="ni ni-ui-04"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-warning mb-md-1">Silk.NET Windowing &amp; Input Superbible</h6>
+                                <p class="description d-none d-md-inline-block mb-0">The ultimate guide to using Silk.NET&#x27;s high-level cross-platform utilities.</p>
+                              </div>
+                            </a>
+                            <a href="../../silk.net" class="media d-flex align-items-center">
+                              <div class="icon icon-shape bg-gradient-danger rounded-circle text-white">
+                                <i class="ni ni-delivery-fast"></i>
+                              </div>
+                              <div class="media-body ml-3">
+                                <h6 class="heading text-danger mb-md-1">Tips &amp; Tricks</h6>
+                                <p class="description d-none d-md-inline-block mb-0">Miscellaneous further documentation for getting the most out of your Silk.NET applications.</p>
+                              </div>
+                            </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="../../silk.net/faq.html" class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">FAQ</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../../blog" class="nav-link">
+                  <i class="ni ni-bold-right d-lg-none"></i>
+                  <span class="nav-link-inner--text">Blog</span>
+                </a>
+              </li>
+    </ul>
+    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+      <li class="nav-item">
+        <a class="nav-link nav-link-icon silk-dark-only" id="lighton" href="#" data-toggle="tooltip" title="Toggle Light Mode">
+          <i class="fa fa-sun"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Light Mode</span>
+        </a>
+        <a class="nav-link nav-link-icon silk-light-only" id="lightoff" href="#" data-toggle="tooltip" title="Toggle Dark Mode">
+          <i class="fa fa-moon"></i>
+          <span class="nav-link-inner--text d-lg-none">Toggle Dark Mode</span>
+        </a>
+      </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://discord.gg/DTHHXRt" target="_blank" data-toggle="tooltip" title="Chat to us on Discord">
+              <i class="fab fa-discord"></i>
+              <span class="nav-link-inner--text d-lg-none">Discord</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="" target="_blank" data-toggle="tooltip" title="Star us on Github">
+              <i class="fab fa-github"></i>
+              <span class="nav-link-inner--text d-lg-none">GitHub</span>
+            </a>
+          </li>
+          <li class="nav-item d-none d-lg-block ml-lg-4 silk-nav-btn">
+
+            <a href="../.." target="_blank" class="btn btn-outline-primary">
+              <span class="nav-link-inner--text">Getting Started</span>
+            </a>
+          </li>
+    </ul>
+  </div>
+</div> 
+        </nav>
+  </header>
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <!-- Sidenav -->
+                <div class="col-12 col-md-3 col-xl-2 ct-sidebar">
+            <nav class="collapse ct-links" id="ct-docs-nav">
+                <div class="ct-toc-item active">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle ct-toc-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                OpenGL Tutorials
+                            </a>
+                            <div class="dropdown-menu silk-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="../.."><i class="ni ni-bold-up"></i> Documentation</a>
+                                        <a class="dropdown-item" href="../../hlu"><i class="ni ni-bold-right"></i> HLU Tutorials</a>
+                                        <a class="dropdown-item" href="../../silk.net"><i class="ni ni-bold-right"></i> Miscellaneous</a>
+                            </div>
+                        </div>
+                    <ul class="nav ct-sidenav">
+                                <li>
+                                    <a href="1-hello-window.html">
+                                        1.1 - Hello Window
+                                    </a>
+                                </li>
+                                <li class="active ct-sidenav-active">
+                                    <a href="2-hello-quad.html">
+                                        1.2 - Hello Quad
+                                    </a>
+                                </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        
+        <!-- Content Navigation-->
+        <div class="d-none d-xl-block col-xl-2 ct-toc">
+            <ul class="section-nav"><li class="toc-entry toc-h1"><a href="#1-2---hello-quad">1.2 - Hello Quad</a></li><ul><li class="toc-entry toc-h2"><a href="#initializing-opengl">Initializing OpenGL</a></li><li class="toc-entry toc-h2"><a href="#clearing-the-window">Clearing the window</a></li><li class="toc-entry toc-h2"><a href="#opengl--the-state-machine">OpenGL: The state machine</a></li><ul><li class="toc-entry toc-h3"><a href="#what-is-a-state-machine">What is a state machine?</a></li></ul><li class="toc-entry toc-h2"><a href="#vertex-array-objects--vaos">Vertex Array Objects (VAOs)</a></li><li class="toc-entry toc-h2"><a href="#vertex-buffer-objects--vbos">Vertex Buffer Objects (VBOs)</a></li><ul><li class="toc-entry toc-h3"><a href="#what-is-a-vertex-buffer">What is a vertex buffer?</a></li><li class="toc-entry toc-h3"><a href="#vertex-data">Vertex data</a></li><li class="toc-entry toc-h3"><a href="#what-makes-up-a-quad">What makes up a quad?</a></li><li class="toc-entry toc-h3"><a href="#creating-the-buffer">Creating the buffer</a></li><li class="toc-entry toc-h3"><a href="#filling-our-buffer-with-data">Filling our buffer with data</a></li><ul><li class="toc-entry toc-h4"><a href="#unsafe-c">Unsafe C#</a></li></ul></ul><li class="toc-entry toc-h2"><a href="#element-buffer-objects--ebos">Element Buffer Objects (EBOs)</a></li><ul><li class="toc-entry toc-h3"><a href="#creating-the-buffer">Creating the buffer</a></li></ul><li class="toc-entry toc-h2"><a href="#shaders">Shaders</a></li><ul><li class="toc-entry toc-h3"><a href="#the-shader-code">The shader code</a></li><ul><li class="toc-entry toc-h4"><a href="#creating-the-vertex-shader">Creating the vertex shader</a></li><li class="toc-entry toc-h4"><a href="#creating-the-fragment-shader">Creating the fragment shader</a></li><li class="toc-entry toc-h4"><a href="#creating-the-shader-objects">Creating the shader objects</a></li><li class="toc-entry toc-h4"><a href="#creating-the-program">Creating the program</a></li></ul><li class="toc-entry toc-h3"><a href="#setting-up-the-attributes">Setting up the attributes</a></li><li class="toc-entry toc-h3"><a href="#cleaning-up">Cleaning up</a></li></ul><li class="toc-entry toc-h2"><a href="#drawing-to-the-screen">Drawing to the screen</a></li><li class="toc-entry toc-h2"><a href="#cleaning-up">Cleaning up</a></li><li class="toc-entry toc-h2"><a href="#wrapping-up">Wrapping up</a></li></ul></ul>
+        </div>
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 silk-content" role="main">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../..">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../..">Documentation</a></li>
+                            <li class="breadcrumb-item"><a href="..">OpenGL Tutorials</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">1.2 - Hello Quad</li>
+                        <li class="ml-auto silk-sidebar-activator"><a data-toggle="collapse" href="#ct-docs-nav" role="button" aria-expanded="false" aria-controls="ct-docs-nav"><i class="fa fa-bars"></i></a></li>
+                    </ol>
+                </nav>
+
+            <!-- Content -->
+            
+
+
+    <div class="alert alert-danger" role="alert">
+        This site is a work in progress!
+    </div>
+
+<h1 id="1-2---hello-quad">1.2 - Hello Quad</h1>
+<div class="alert alert-info" role="alert" style="background-color: #2baec6b0"><h4 style="color: white">Info</h4><p>You can view the source code for this tutorial <a href="../sources/1.2-final-result.html">here</a>. This tutorial builds on the previous tutorial. If you haven't read it, you can do so <a href="1-hello-window.html">here</a>.</p>
+</div>
+<p>Let's draw something on-screen! In this tutorial, you'll learn:</p>
+<ul>
+<li>How to initialize OpenGL.</li>
+<li>How to clear the window.</li>
+<li>How the OpenGL pipeline works.</li>
+<li>What vertex array objects, vertex buffers, and element array buffers are, and how to use them.</li>
+<li>How to create and use shaders.</li>
+<li>How to draw to the screen.</li>
+</ul>
+<p>This tutorial will feature a lot of content and new info, so we'll take it slow and with lots of explanations.</p>
+<h2 id="initializing-opengl">Initializing OpenGL</h2>
+<p>The first thing we need to do before we can issue OpenGL commands, is to initialize it. Fortunately, Silk.NET windowing does most of the hard part for us, and we only have to get the GL api.</p>
+<p>Add the following using directive to the top of your file, you'll need this to use OpenGL:</p>
+<pre><code class="language-cs">using Silk.NET.OpenGL;
+</code></pre>
+<p>Then, at the top of your class, add the following:</p>
+<pre><code class="language-cs">private static GL _gl;
+</code></pre>
+<p>Finally, in your <code>OnLoad</code> method, add the following:</p>
+<pre><code class="language-cs">_gl = _window.CreateOpenGL();
+</code></pre>
+<p>What are we doing here? Silk.NET requires you to keep a <strong>reference</strong> to the OpenGL API. If you've used or seen OpenGL in C, you'll notice that this is different to the way that it is done there. This is done so that you can more easily keep track of multiple contexts. If you don't know what that is, don't worry about it for now, we won't be using it in these tutorials.</p>
+<div class="alert alert-info" role="alert" style="background-color: #2baec6b0"><h4 style="color: white">Info</h4><p>If you take a look at the source in the Silk.NET samples repository, you will notice that it uses <code>_gl = GL.GetApi(_window)</code>. This is another way to get the GL API, however when using Silk.NET windowing, it's recommended that you use <code>_window.CreateOpenGL()</code> instead.</p>
+</div>
+<p>Now, run your application again. If all is good, you should see no change. Awesome! Let's do our first steps in OpenGL: Clearing the window.</p>
+<h2 id="clearing-the-window">Clearing the window</h2>
+<p>Before we start this, let's take a look at what makes up an OpenGL window.</p>
+<p>A window contains at least two <strong>framebuffers</strong>. A framebuffer is a set of textures that can be rendered to. An OpenGL window's framebuffer consists of the following textures:</p>
+<ul>
+<li>Color texture</li>
+<li>Depth stencil texture</li>
+</ul>
+<div class="alert alert-info" role="alert" style="background-color: #2baec6b0"><h4 style="color: white">Info</h4><p>The technical name for these textures is <strong>buffers</strong>. For simplicity reasons we will call them textures here, as to not confuse you with the buffers we use later in the tutorial.</p>
+</div>
+<p>On top of this, a window will contain at least two of these framebuffers. This is known as <strong>double-buffering</strong> and is imperative for rendering to work properly. One buffer is displayed, while another is rendered to. They are then swapped between once the GPU is ready.</p>
+<p>This is what makes up the <strong>swapchain</strong>, which, if you've ever looked into Direct3D, you should be familliar with. OpenGL does not use the term, nor does it allow you to manage this yourself, however it is still in the background, and it is helpful to know this.</p>
+<p>Now that we know this, we can get on with clearing the window.</p>
+<p>Add the following using directive to the top of your file:</p>
+<pre><code class="language-cs">using System.Drawing;
+</code></pre>
+<p>Then, in your <code>OnLoad</code> method, add the following:</p>
+<pre><code class="language-cs">_gl.ClearColor(Color.CornflowerBlue);
+</code></pre>
+<p>You may notice that this function contains various <strong>overloads</strong>, including ones for a <code>System.Numerics.Vector4</code>, and 4 floats. We'll be using the overload that takes <code>System.Drawing.Color</code>, because it is the easiest to use and understand.</p>
+<p>If you run your application now, you'll notice that the window is still black. That's because we've set the clear <em>color</em>, but not actually told OpenGL to clear the window.</p>
+<p>In your <code>OnRender</code> method, add the following:</p>
+<pre><code class="language-cs">_gl.Clear(ClearBufferMask.ColorBufferBit);
+</code></pre>
+<p>Run your application again, and you should see a lovely sky blue window!</p>
+<p><img src="../../../images/opengl/chapter1/cornflower-window.png" alt="Sky blue window"></p>
+<p>Congrats! You've done your first thing in OpenGL! Didn't work? Check the <a href="../sources/1.2.2-clear-window.html">source code</a> for this section here.</p>
+<p>But - how does OpenGL know to color the window blue? Sure, we've told it we want blue - but we only did that once... How does it know to keep using blue?</p>
+<p>Well, this is because OpenGL is a <strong>state machine</strong>.</p>
+<h2 id="opengl--the-state-machine">OpenGL: The state machine</h2>
+<p>Before we can continue further, you'll have to get used to the concept that OpenGL is a <strong>state machine</strong>. It's really hard to understand OpenGL if you don't understand this, so read closely.</p>
+<h3 id="what-is-a-state-machine">What is a state machine?</h3>
+<p>At its core, a state machine holds... state. You set the state of something, and it retains that state until you change it.</p>
+<p>This is exactly how OpenGL works. Once you set something, it will remain set until you change it. This counts for everything in OpenGL. Clear color, binding objects, etc etc, everything goes through the state machine. You can <em>manipulate</em> the current state, however you have to be wary at all times of what part of the state you are changing. Change the wrong thing and suddenly you program might not work!</p>
+<p>So, this explains why clearing the window works. You set the clear color, and it remains <em>as</em> the clear color until you change it.</p>
+<p>Now that we've got that, let's move on!</p>
+<h2 id="vertex-array-objects--vaos">Vertex Array Objects (VAOs)</h2>
+<p>A unique feature that modern OpenGL has is what is known as a Vertex Array Object, or VAO. It stores all the necessary information required to draw an object to the screen, such as the vertex data (which we'll get into in a minute), and also information on how to read this data.</p>
+<p>This is a required feature of modern OpenGL. You <strong>must</strong> have a VAO bound, otherwise your application won't work.</p>
+<p>Let's create the VAO!</p>
+<p>At the top of your class, add the following:</p>
+<pre><code class="language-cs">private static uint _vao;
+</code></pre>
+<p>Then, in your <code>OnLoad</code> method, add:</p>
+<pre><code class="language-cs">_vao = _gl.GenVertexArray();
+_gl.BindVertexArray(_vao);
+</code></pre>
+<p>What's going on here? First, we generate the VAO. Then, before we can use, or update it, we need to <strong>bind</strong> it.</p>
+<p>Binding is a term you will hear a lot with OpenGL, and in these tutorials too. Binding essentially means updating the current OpenGL state with the given object. So, in this example, when we bind the VAO, we update OpenGL's state so that the VAO in the state machine is now the VAO we have just created. If you don't bind an object before updating/using it, you will use or update the previously bound object instead, which can cause problems and headaches later.</p>
+<p>We're now ready to give the VAO some data. But first, we need a <strong>vertex buffer</strong>.</p>
+<h2 id="vertex-buffer-objects--vbos">Vertex Buffer Objects (VBOs)</h2>
+<p>Here is the part where we actually give the GPU some data it can work with. For most graphics applications, a vertex buffer is <strong>required</strong> to display anything on screen.</p>
+<h3 id="what-is-a-vertex-buffer">What is a vertex buffer?</h3>
+<p>Before we can continue, it's handy to know what a vertex buffer is, and what it does.</p>
+<p>Let's define both vertex, and buffer.</p>
+<ul>
+<li>Vertex - A point where two lines, or edges meet.</li>
+<li>Buffer - A region in memory that can be accessed to be written to, or read from.</li>
+</ul>
+<p>Knowing these definitions should give us a good idea of what a vertex buffer is. It's a region of memory, on the GPU, that stores points, which will get <strong>rasterized</strong> on-screen (usually in the form of triangles).</p>
+<h3 id="vertex-data">Vertex data</h3>
+<p>Let's create the data that we will fill the vertex buffer with!</p>
+<p>In your <code>OnLoad</code> function, just after you call <code>_gl.BindVertexArray()</code>, add the following:</p>
+<pre><code class="language-cs">float[] vertices =
+{
+     0.5f,  0.5f, 0.0f,
+     0.5f, -0.5f, 0.0f,
+    -0.5f, -0.5f, 0.0f,
+    -0.5f,  0.5f, 0.0f
+};
+</code></pre>
+<h3 id="what-makes-up-a-quad">What makes up a quad?</h3>
+<p>In modern graphics programming, you are expected to use triangles, lines, or points. While you may see options for quads, these are obsolete.</p>
+<p>Therefore, a quad is made of two right-angle triangles. This can best be seen if we view the result in <strong>wireframe</strong> mode.</p>
+<p><img src="../../../images/opengl/chapter1/wireframe-quad.png" alt="Wireframe quad"></p>
+<p>In the image, you can also see where the four vertices go in relation to the quad. While you won't <em>usually</em> be defining vertices yourself, it's still handy to know how it works.</p>
+<h3 id="creating-the-buffer">Creating the buffer</h3>
+<p>Now that we've got our vertex data, let's create the buffer!</p>
+<p>At the top of your class, add the following:</p>
+<pre><code class="language-cs">private static uint _vbo;
+</code></pre>
+<p>Then, in your <code>OnLoad</code> method, under where the vertices are defined, add:</p>
+<pre><code>_vbo = _gl.GenBuffer();
+_gl.BindBuffer(BufferTargetARB.ArrayBuffer, _vbo);
+</code></pre>
+<p>Much like the VAO, we need to first generate the buffer, and then bind it. Unlike vertex arrays, however, buffers need to be bound to a <strong>target</strong>. This allows you to bind buffers to different targets at the same time. Some of the more common targets include:</p>
+<ul>
+<li><code>ArrayBuffer</code> - The vertex buffer target (which is what we're using here).</li>
+<li><code>ElementArrayBuffer</code> - The element array buffer target (which you'll see later).</li>
+<li><code>UniformBuffer</code> - A uniform buffer, not used in this tutorial, but we'll get to it in a later tutorial.</li>
+</ul>
+<p>In this case, we're binding to <code>ArrayBuffer</code> since we're creating a vertex buffer.</p>
+<h3 id="filling-our-buffer-with-data">Filling our buffer with data</h3>
+<p>Let's fill our buffer with some data! Before we do that though, you need to be aware of <code>unsafe</code> in C#.</p>
+<h4 id="unsafe-c">Unsafe C#</h4>
+<p>Silk.NET heavily uses <code>unsafe</code> code. Don't worry, this won't make your computer explode, however it does exit out of the &quot;memory safe&quot; managed environment of C#, and enters a realm where undefined behavior, segmentation faults, and strange results are more likely to occur if you are not careful. Since we're working with low-level APIs, and OpenGL is defined in plain C, some unsafe code will be necessary in order for us to be able to communicate with it from C#.</p>
+<div class="alert alert-info" role="alert" style="background-color: #2baec6b0"><h4 style="color: white">Info</h4><p>If you wish to use <code>Span</code> instead, and remain in <code>safe</code> mode, Silk.NET does support these too. However, I will be using <code>unsafe</code> in this tutorial instead, as this is both what I personally use, as well as what the samples use.</p>
+</div>
+<p>Unsafe mode is not enabled by default, so we need to enable it. To enable it:</p>
+<ul>
+<li>If you're on Visual Studio 2022, open your project properties and under Build --&gt; General, make sure the box that says &quot;Unsafe code&quot; is checked.</li>
+<li>You can also edit your project's <code>.csproj</code> file manually, by adding an <code>&lt;AllowUnsafeBlocks&gt;true&lt;/AllowUnsafeBlocks&gt;</code> inside the <code>&lt;PropertyGroup&gt;</code>.</li>
+</ul>
+<p>This will now allow you to use the <code>unsafe</code> keyword, which allows a block of code to contain unsafe code. You now <strong>MUST</strong> add <code>unsafe</code> to your <code>OnLoad</code> and <code>OnRender</code> methods, like so:</p>
+<pre><code class="language-cs">public static unsafe void OnLoad() { ... }
+</code></pre>
+<p>If you forget to do either of these, you'll get compile errors. While our <code>OnRender</code> method does not contain any unsafe code yet, it will when we draw to the screen later, so it's best just to do it now so you don't forget to do it later.</p>
+<p>Now let's fill the buffer!</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">fixed (float* buf = vertices)
+    _gl.BufferData(BufferTargetARB.ArrayBuffer, (nuint) (vertices.Length * sizeof(float)), buf, BufferUsageARB.StaticDraw);
+</code></pre>
+<p>Let's go over what's going on here. First, we <code>fix</code> the vertex data. This prevents the garbage collector from moving it around, so we can take a pointer to the data. We then call <code>_gl.BufferData</code> and tell it the target we want, <code>ArrayBuffer</code> in this case, give it the data length (measured in bytes), the buffer pointer, and we choose <code>StaticDraw</code> for our usage hint.</p>
+<p>What is a usage hint? A usage hint simply tells the GPU how we plan on using this data. These are some of the most common usage hints you'll use in an OpenGL application:</p>
+<ul>
+<li><strong>StaticDraw</strong> - Set the data once, and it can only be read from by the GPU (in this case for drawing)</li>
+<li><strong>DynamicDraw</strong> - Similar to StaticDraw, however the data will be set &amp; updated more than once.</li>
+</ul>
+<p>There are a lot more usage hints, including <code>StreamDraw</code> and variants of these hints with <code>XyzCopy</code> and <code>XyzRead</code>, but they are not as common in most OpenGL applications. On top of this, the usage hint is only a <em>hint</em>. Most OpenGL drivers interpret these hints the same way, and it is perfectly valid to set the data with a <code>StaticDraw</code> hint. However, you should still get into the practice of using the correct usage hint, as some APIs such as Direct3D <em>do</em> care about the hint you use.</p>
+<p>Now, run the program again, and if you get the same blue window, you've set the buffer data successfully!</p>
+<p>Now, let's create the <strong>element buffer object</strong>.</p>
+<h2 id="element-buffer-objects--ebos">Element Buffer Objects (EBOs)</h2>
+<p>Unlike a vertex buffer, an element buffer is not <em>strictly</em> required to display something on screen, however not using it in some cases may require making your vertex buffer a lot larger, with a lot more duplicate data.</p>
+<p>For those familliar with Direct3D terms, EBOs are more commonly referred to as <strong>index buffers</strong>, which is what this tutorial will refer to them from now on.</p>
+<p>Take a look at the <code>vertices</code> array we defined earlier. You may have noticed that it only has four different points in it. Great! That's how you make a quad. But remember - that's not how this works. As mentioned earlier, a quad is made up of two triangles. But wait - that's six points... But we've only defined four. What's going on?</p>
+<p>Well, that's where index buffers come in! An index buffer simply tells the GPU which points in the vertex buffer to use for each triangle.</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">uint[] indices =
+{
+    0u, 1u, 3u,
+    1u, 2u, 3u
+};
+</code></pre>
+<p>Now, you may be looking at this thinking &quot;what is this?&quot;. Don't worry, once you know what it's doing it's quite easy to wrap your head around.</p>
+<p>You'll notice that it contains 6 values. These values correspond to an index in our vertex buffer (notice how the maximum value is 3, which is the maximum index in our vertex buffer.)</p>
+<p>Take a look at the <a href="#what-makes-up-a-quad">image you saw earlier</a>. The points are representitive of a value in the vertex buffer. If you trace each point, you'll see it's in clockwise order (top left is the first point, bottom left is the last point). Assign each of these an incrementing value from 0-3. Then, trace out the indices we defined above. You may notice that you'll trace out two triangles, making up our quad.</p>
+<p>Great! Hopefully you now have a better understanding of how index buffers allow you to reduce the amount of duplicate data in the vertex buffer. If we didn't use an index buffer, we'd have to define the top left, and bottom left points twice!</p>
+<h3 id="creating-the-buffer">Creating the buffer</h3>
+<p>Creating the EBO is very similar to creating a vertex buffer.</p>
+<p>First, we must create and bind the buffer itself. Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">_ebo = _gl.GenBuffer();
+_gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, _ebo);
+</code></pre>
+<p>Then, we fill the buffer with data, much in the same way as we did with the vertex buffer.</p>
+<p>Again, add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">fixed (uint* buf = indices)
+    _gl.BufferData(BufferTargetARB.ElementArrayBuffer, (nuint) (indices.Length * sizeof(uint)), buf, BufferUsageARB.StaticDraw);
+</code></pre>
+<p>And that's it! In OpenGL, this is the common way you'll <strong>create</strong> buffers, from VBOs, to EBOs, to UBOs.</p>
+<p>Run the program again, and if you still see the blue window, you've successfully created the EBO!</p>
+<p>Now we can move onto the <strong>shader</strong>.</p>
+<h2 id="shaders">Shaders</h2>
+<p>This tutorial won't go fully into detail about what shaders are and how they work, instead we'll leave that for a later tutorial, but in essence, a shader is a small program that runs on your GPU, that tells it how to process and display the data in our buffers.</p>
+<p>There are many different types of shaders:</p>
+<ul>
+<li>Vertex</li>
+<li>Fragment (or Pixel, as used by Direct3D)</li>
+<li>Geometry</li>
+<li>Compute</li>
+<li>Tessellation</li>
+</ul>
+<p>These shaders all serve different purposes, however the most commonly used shaders are the <strong>vertex</strong> and <strong>fragment</strong> shaders, and we will be using those in this tutorial.</p>
+<p>A vertex shader is run (invoked) for every vertex in the vertex buffer. The vertex buffer is where you perform transformations such as translating, rotating or scaling and object. Once the vertex shaders are done running, our vertices are arranged into <strong>primitives</strong> (in our case, triangles), and the on-screen pixels these triangles occupy are filled by fragment shaders. This process is called <strong>rasterization</strong>.</p>
+<p>The fragment shader is invoked for every fragment of every primitive on screen. A fragment is essentially a pixel, and Direct3D even calls them pixel shaders. As you may expect, these shaders are a lot more intensive than vertex shaders, and can often be the cause of GPU slowdowns, given that a single triangle may only invoke three vertex shaders, but can result in hundreds or thousands of fragment shader invocations!</p>
+<p>Fragment shaders is where you perform the stuff that gets displayed on screen, such as texturing and many forms of lighting.</p>
+<p>For the moment, this is all you need to know about shaders. You will learn more about shaders as we progress further in this tutorial, as knowing how shaders work and operate is a vital thing to know when it comes to modern graphics programming. The sky is the limit! (Or in our case, an endless cornflower blue void...)</p>
+<h3 id="the-shader-code">The shader code</h3>
+<p>Before we can create our shader objects, we need some shader code. OpenGL uses <strong>GLSL</strong> (Open<strong>GL</strong> <strong>S</strong>hading <strong>L</strong>anguage). Syntactically, it is quite similar to C. Don't worry though, there are no pointers in sight.</p>
+<h4 id="creating-the-vertex-shader">Creating the vertex shader</h4>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">const string vertexCode = &#64;&quot;
+#version 330 core
+
+layout (location = 0) in vec3 aPosition;
+
+void main()
+{
+    gl_Position = vec4(aPosition, 1.0);
+}&quot;;
+</code></pre>
+<p>This is our vertex shader! Let's go through it line-by-line.</p>
+<p>First, we must tell it which GLSL version we wish to use. Since OpenGL 3.3 (the version we are using), the GLSL version corresponds to the OpenGL version. We tell it we want <code>core</code>, as we are using Core OpenGL 3.3, rather than compatibility.</p>
+<p>Next, we define our <strong>shader attributes</strong>. In our example, we only have one, which is the position we defined in the vertex buffer. Remember - the vertex shader is executed <em>for each</em> vertex in the vertex buffer, which is why we only need one value at a time. We define it at a manual &quot;location&quot;, 0. While this is not necessary, we will be using it in this tutorial, as certain drivers (such as intel) like to use random locations if you do not specify one, which can cause many problems if you are not careful.</p>
+<p>Much like C, we define our entry point, the <code>main</code> function. In it, we set the value of <code>gl_Position</code> to the vertex position. As we are not performing any transformations, we simply set the input value directly to the output value. <code>gl_Position</code>, which is a built-in shader variable, only accepts a <code>vec4</code> value though, so we must convert <code>aPosition</code> to <code>vec4</code> first. You may notice we use <code>1.0</code> for the W value instead of <code>0.0</code> though. While in this case it does not matter, it's a habit you should get into, as this will become very important when we start using matrices and transformations.</p>
+<h4 id="creating-the-fragment-shader">Creating the fragment shader</h4>
+<p>Our fragment shader for this example is very simple.</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">const string fragmentCode = &#64;&quot;
+#version 330 core
+
+out vec4 out_color;
+
+void main()
+{
+    out_color = vec4(1.0, 0.5, 0.2, 1.0);
+}&quot;;
+</code></pre>
+<p>In our fragment shader, we simply output a single color, in this case a reddish-orange.</p>
+<p>Because our fragment shader is so simple, we don't use any <code>in</code> attributes for this example. However, unlike a vertex shader, a fragment shader must <strong>always</strong> have at least one <code>out</code> attribute. This attribute is the output color of the fragment shader itself, and must always be assigned a value. (We'll get more into this in a later tutorial). The output color is in the RGBA format. In OpenGL, the output color in the fragment shader is a <strong>normalized</strong> 32-bit float. Therefore, each of the RGBA values must be between 0 and 1. This is also true for our clear color too, however Silk.NET handily accepts a <code>System.Drawing.Color</code>, which we are using in this tutorial.</p>
+<h4 id="creating-the-shader-objects">Creating the shader objects</h4>
+<p>Let's create the shader objects!</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">uint vertexShader = _gl.CreateShader(ShaderType.VertexShader);
+_gl.ShaderSource(vertexShader, vertexCode);
+</code></pre>
+<p>First, we create the shader object itself. Each shader object must be assigned a <strong>type</strong>, in this case the vertex shader. Then we simply give the shader the code we defined earlier.</p>
+<p>Now we need to <strong>compile</strong> the shader.</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">_gl.CompileShader(vertexShader);
+
+_gl.GetShader(vertexShader, ShaderParameterName.CompileStatus, out int vStatus);
+if (vStatus != (int) GLEnum.True)
+    throw new Exception(&quot;Vertex shader failed to compile: &quot; + _gl.GetShaderInfoLog(vertexShader));
+</code></pre>
+<p>First, we compile the shader. Then, we need to check to make sure it has compiled correctly, and if it hasn't, it needs to let us know what our error is. <code>glGetShader</code> can give us a lot of different parameters, some of which we'll be using in later tutorials. For now, we are just interested in the compile status.</p>
+<p>The compile status returns <code>1</code> if successful, and <code>0</code> if not. If it's not successful, we throw an exception. <code>glGetShaderInfoLog</code> gets the error string for the shader, and we output that in our exception. You don't <em>have</em> to throw an exception though, you can do whatever you wish with this result. Just don't try to continue further, as you will get a link error! (We'll get to this in a minute).</p>
+<p>We've now successfully created and compiled our vertex shader object. Creating the fragment shader object is almost exactly the same, with only a few parameters changed.</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">uint fragmentShader = _gl.CreateShader(ShaderType.FragmentShader);
+_gl.ShaderSource(fragmentShader, fragmentCode);
+
+_gl.CompileShader(fragmentShader);
+
+_gl.GetShader(fragmentShader, ShaderParameterName.CompileStatus, out int fStatus);
+if (fStatus != (int) GLEnum.True)
+    throw new Exception(&quot;Fragment shader failed to compile: &quot; + _gl.GetShaderInfoLog(fragmentShader));
+</code></pre>
+<p>And with that, we've created and compiled both of our shader objects! Now, we need to create the shader program.</p>
+<h4 id="creating-the-program">Creating the program</h4>
+<p>Finally, we can create the <strong>shader program</strong>. In OpenGL, shaders are stored in a single <strong>program</strong> object.</p>
+<p>First, add the following to the top of your file:</p>
+<pre><code class="language-cs">private static uint _program;
+</code></pre>
+<p>Then, add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">_program = _gl.CreateProgram();
+</code></pre>
+<p>Now that we've created the program, we now need to attach the shaders to it and <strong>link</strong> them to the program.</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">_gl.AttachShader(_program, vertexShader);
+_gl.AttachShader(_program, fragmentShader);
+
+_gl.LinkProgram(_program);
+
+_gl.GetProgram(_program, ProgramPropertyARB.LinkStatus, out int lStatus);
+if (lStatus != (int) GLEnum.True)
+    throw new Exception(&quot;Program failed to link: &quot; + _gl.GetProgramInfoLog(_program));
+</code></pre>
+<p>Much like before, we must check to make sure that the program has linked correctly. Link errors are most often caused by things like a typo in an <code>in</code> or <code>out</code> variable name, or attempting to link with a shader that has failed to compile, which, assuming you implemented the checks earlier, should basically never happen.</p>
+<p>Now that we have linked the program, it can now function by itself, and we no longer need the shader objects. Therefore, we can <strong>detach and delete</strong> them, freeing a bit of GPU memory.</p>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">_gl.DetachShader(_program, vertexShader);
+_gl.DetachShader(_program, fragmentShader);
+_gl.DeleteShader(vertexShader);
+_gl.DeleteShader(fragmentShader);
+</code></pre>
+<p>Now, run your program again. If you get no errors, this has all worked successfully!</p>
+<h3 id="setting-up-the-attributes">Setting up the attributes</h3>
+<p>The last thing we need to do before we can begin drawing our quad to the screen is to set up the attributes. By default, OpenGL does not know how to send the data to our shader, so we must tell it.</p>
+<p>This is done with the <strong>attribute setup</strong>. This sets various parameters in the VAO, which tells OpenGL how to read the vertex data in the vertex buffer. As vertex buffers can contain more than just position data (it can contain almost anything you want), it is vital that OpenGL knows how to separate out the individual bits of data, so it can pass it to the shader correctly.</p>
+<div class="alert alert-warning" role="alert" style="background-color: #d55e30b0"><h4 style="color: white">Warning</h4><p>While fragment shaders (and other shaders) can have <code>in</code> attributes, the only ones you can directly set <em>outside</em> of a shader are the ones going into the vertex shader. The only way to set attributes in the fragment shader is to pass them through the vertex shader. Therefore, the attribute setup only affects the vertex shader and vertex buffer, not any other shader.</p>
+</div>
+<p>Add the following to your <code>OnLoad</code> method:</p>
+<pre><code class="language-cs">const uint positionLoc = 0;
+_gl.EnableVertexAttribArray(positionLoc);
+_gl.VertexAttribPointer(positionLoc, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), (void*) 0);
+</code></pre>
+<p>Let's go over what is going on here.</p>
+<p><code>positionLoc</code> simply refers to the <code>aPosition</code> attribute we defined in our vertex shader earlier. Since we explicitly stated we wanted it at position 0, we must also use that here. If you decided against explicitly giving a location in your shader, you can replace the <code>0</code> with <code>_gl.GetAttribLocation(&quot;aPosition&quot;);</code> (just remember to remove the <code>const</code> too...)</p>
+<p>Before we can use the attribute, we must first enable it. Then, we tell it what part of the data to look at.</p>
+<p>First, we tell it the size of the attribute's data type. Since we're using a <code>vec3</code>, we tell it that the size is 3. Next up, we tell it that we're using floats. This is the most common pointer type used. The <code>false</code> tells it we don't want to normalize the values. If we did normalize them, OpenGL would convert them to between 0 and 1. Finally, we have the <strong>stride</strong> and <strong>offset</strong>.</p>
+<p>The stride tells OpenGL the size (in bytes) of a <em>single</em> vertex. The offset tells OpenGL the offset <em>within</em> the stride of the attribute.</p>
+<p>This diagram gives a visual explanation of what stride and offset do (credit to LearnOpenGL):</p>
+<p><img src="../../../images/opengl/chapter1/vertex_attribute_pointer.png" alt="stride and offset"></p>
+<p>In our example, the only things we define per vertex is the position of the vertex itself, which is 3 values per vertex. Therefore, our stride is just <code>3 * sizeof(float)</code> (remember, stride is in <strong>bytes</strong>, so we must multiply by the size of the float primitive). Since we are only defining one attribute, we don't need to have any offset. Therefore, we can just use <code>0</code>. OpenGL expects a <code>void</code> pointer, so we must cast it to <code>void*</code>.</p>
+<h3 id="cleaning-up">Cleaning up</h3>
+<p>We're nearly there. The last thing we should do is to unbind the various buffers. While you don't <em>need</em> to do this, it will help to reduce the risk of changing a value for the wrong buffer.</p>
+<p>Add the following code to your <code>OnLoad</code> method:</p>
+<pre><code>_gl.BindVertexArray(0);
+_gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
+_gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, 0);
+</code></pre>
+<p>Doing this means we've &quot;un-bound&quot; everything, so calling something like <code>BufferData</code> won't affect the buffers we've just created.</p>
+<div class="alert alert-warning" role="alert" style="background-color: #d55e30b0"><h4 style="color: white">Warning</h4><p>You <strong>MUST</strong> unbind the vertex array first, before unbinding the other buffers. If you forget to do it in this order, the buffer will be unbound from the vertex array, meaning you'll see incorrect results when you render the object.</p>
+</div>
+<p>If you want to see the resulting code so far, you can see it <a href="../sources/1.2.7-finished-setup.html">here</a>.</p>
+<h2 id="drawing-to-the-screen">Drawing to the screen</h2>
+<p>It's finally time to draw to the screen! That was a lot of setup work we just did there. Fortunately, that was the hard part. Drawing our result to the screen is now very easy.</p>
+<p>Add the following to your <code>OnRender</code> method:</p>
+<pre><code class="language-cs">_gl.BindVertexArray(_vao);
+_gl.UseProgram(_program);
+_gl.DrawElements(PrimitiveType.Triangles, 6, DrawElementsType.UnsignedInt, (void*) 0);
+</code></pre>
+<p>That's all we need to draw our quad to the screen! Yes, seriously.</p>
+<p>Let's explain what's going on here.</p>
+<p>First, we bind our vertex array. Before we can draw anything, we need to have a vertex array bound. The vertex array you bind will depend on what you want to draw. Next, we use the program object we created earlier. Again, we must have a program bound before we can draw.</p>
+<p>Finally, we tell the GPU to draw. We're using <code>glDrawElements</code> here, as we used an EBO. If we didn't use an EBO, we'd want to use <code>glDrawArrays</code> instead.</p>
+<p>The first parameter tells it that we're drawing triangles (triangle list to be precise, there are other triangle types we don't need to worry about for now.).</p>
+<p>The <code>6</code> is simply the number of elements in our EBO. Remember, a quad is two triangles, with three vertices per triangle, making six vertices total.</p>
+<p>We tell it we're using an unsigned int as the element type (you may have noticed earlier that <code>indices</code> was of type <code>uint[]</code>). The most commonly used values are <code>UnsignedInt</code> and <code>UnsignedShort</code>. Some older GPUs only supported <code>UnsignedShort</code>, however all modern GPUs can fully support <code>UnsignedInt</code>, so this isn't really something you need to worry about anymore.</p>
+<p>The last parameter is a pointer to the starting index of the indices. Since we want all the indices, we just set this value to <code>0</code>. Much like the offset in our vertex attributes, OpenGL expects a <code>void</code> pointer, so we must cast this to <code>void*</code>.</p>
+<p>And that's it! Run your program and you should see a lovely orange rectangle on a blue background. Exciting, isn't it... Right...?</p>
+<p><img src="../../../images/opengl/chapter1/final-result-t2.png" alt="Final result"></p>
+<p>While this may have seen like a lot of set up for a boring result, this code can render pretty much anything you want to the screen. It remains pretty much the same, whether you're rendering a basic quad like this, or a complex 3D model. All you need to change are the vertices &amp; indices going in, and some more complex shader code to handle the transformations.</p>
+<p>Once you get the basics understood and you can confidently use it, creating more complex stuff becomes a lot easier.</p>
+<p>If you would like to view the full source code for the application, you can view it <a href="../sources/1.2-final-result.html">here</a>.</p>
+<h2 id="cleaning-up">Cleaning up</h2>
+<p>When you're done with an OpenGL resource, you should delete it, to free GPU memory. For this though, it's not needed. The driver will automatically clean all created resources when your application closes. In fact, it's recommended that you <em>don't</em> manually delete resources when the application closes. The driver can free these objects a lot faster than manually removing them. If you have a lot of objects, manually deleting can cause the application to hang while the driver tries to free everything.</p>
+<p>You <strong>MUST</strong> remember to remove unused objects while your application is running, however, as forgetting to do so will use more and more of the GPU's memory, potentially causing it to run out of memory. OpenGL isn't garbage collected! It requires manual memory management, a lot like C.</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>That was a lot to digest! You've hopefully learned a lot along the way though, and if there's bits you still don't understand, just go back and re-read the sections again to hopefully improve your understanding. Don't worry about it too much though, the learning curve is steep, and once you do understand it, you'll be writing graphics programs in no time!</p>
+<p>Here's some stuff you can do now:</p>
+<ul>
+<li>Move on to the <a href="../../coming-soon.html">next tutorial</a>, where we'll be abstracting away some of our code to make it easier to read.</li>
+<li>View the full tutorial source code on the <a href="https://github.com/dotnet/Silk.NET/tree/main/examples/CSharp/OpenGL%20Tutorials/Tutorial%201.2%20-%20Hello%20quad">Silk.NET git repository</a>.</li>
+<li>Join the <a href="https://discord.gg/DTHHXRt">Discord server</a>, where you can ask questions, show your stuff, and chat with everyone there.</li>
+</ul>
+<p>Something not right? <a href="../sources/1.2-final-result.html">Compare your code with the final result.</a></p>
+
+
+    <hr class="silk-last-hr">
+    <div class="giscus"></div>
+
+    <hr class="silk-last-hr">
+    <div>
+      <div class="col-md-6">
+        <div class="copyright">
+            &copy; 2023
+                <a href="https://dotnetfoundation.org" target="_blank">.NET Foundation and Contributors</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <p class="silk-disclaimer">
+            <small>Khronos&#xAE;, Vulkan&#xAE; are registered trademarks, and OpenXR&#x2122; is a trademark of The Khronos Group Inc. and is registered as a trademark in China, the European Union, Japan and the United Kingdom. OpenCL&#x2122;, OpenGL&#xAE;, and the OpenGL ES&#x2122; logos are registered trademarks or trademarks used under license by Khronos. Microsoft&#xAE; and DirectX&#xAE; are registered trademarks of Microsoft Corporation, used solely for identification. All other product names, trademarks, and/or company names are also used solely for identification and belong to their respective owners. Use of external images, trademarks, and/or resources are not endorsements, and no information in or regarding any of these external resources has been endorsed or approved by Silk.NET or the .NET Foundation.</small>
+            <br>
+            <br>
+            <small>Powered by <a href="https://statiq.dev">Statiq Framework</a></small>
+        </p>
+    </div>
+
+        </main>
+    </div>
+</div>
+
+  <script src="../../../theme/jquery.min.js" type="text/javascript"></script>
+  <script src="../../../theme/popper.min.js" type="text/javascript"></script>
+  <script src="../../../theme/bootstrap.min.js" type="text/javascript"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script src="../../../theme/argon.js" type="text/javascript"></script>
+  <script src="../../../theme/clipboard.min.js"></script>
+  <script src="../../../theme/headroom.min.js"></script>
+  <script src="../../../theme/silk.js"></script>
+      <script src="https://giscus.app/client.js"
+              data-repo="dotnet/Silk.NET"
+              data-repo-id="MDEwOlJlcG9zaXRvcnkxOTEyMzIyNDA="
+              data-category="Webpage Comments"
+              data-category-id="DIC_kwDOC2X48M4CT__i"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="preferred_color_scheme"
+              data-lang="en"
+              crossorigin="anonymous"
+              async>
+      </script>
+</body>
+
+</html>
