@@ -1,3 +1,7 @@
+# THIS FORK IS NOT USED
+
+Please see upstream. This is now archived.
+
 <!-- Begin exclude from NuGet readme. -->
 <h1 align="center">
     <a href="#"><img align="center" src="documentation/readme/silkdotnet_v3_horizontal_96.svg"></a>
